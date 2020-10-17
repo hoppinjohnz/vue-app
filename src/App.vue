@@ -4,9 +4,16 @@
     <hello-world msg="Hi John!"/>
 
     <h1>Employees</h1>
-    <employee-form />
+<!-- 
+Retrieving events from the child
+Now employee-form is broadcasting its emitted event, but we need to capture the event and value in the parent to work with it.
+The first thing we need to do is make employee-form acknowledge and handle the emitted event, and invoke a new method. It will look like this:
+  <component @name-of-emitted-event="methodToCallOnceEmitted"></component> 
+-->
+    <employee-form @add:employee="addEmployee"/>
 
-    <employee-table :employees="this.employees"/>
+<!-- After defining data() here, we want to pass it to EmployeeTable. We can do that by passing the data down as a property. An attribute that begins with a colon : will allow you to pass data. The more verbose version would be v-bind. In this case we'll pass our employeesData array. -->
+    <employee-table :employeesTable="this.employeesData"/>
   </div>
 </template>
 
@@ -24,7 +31,7 @@
     },
     data() {
       return {
-        employees: [
+        employeesData: [
           {
             id: 1,
             name: 'Richard Hendricks',
@@ -42,6 +49,16 @@
           },
         ],
       }
+    },
+    methods: {
+      addEmployee(e) {
+        const l = this.employeesData.length
+        const lId = l > 0 ? this.employeesData[ l - 1 ].id : 0;
+        const id = lId + 1;
+        const ne = { ...e, id };
+
+        this.employeesData = [ ...this.employeesData, ne ]
+      },
     },
   }
 </script>
