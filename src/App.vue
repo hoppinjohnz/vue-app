@@ -13,7 +13,7 @@ The first thing we need to do is make employee-form acknowledge and handle the e
     <employee-form @add:employee="addEmployee"/>
 
 <!-- After defining data() here, we want to pass it to EmployeeTable. We can do that by passing the data down as a property. An attribute that begins with a colon : will allow you to pass data. The more verbose version would be v-bind. In this case we'll pass our dataEmployees array. -->
-    <employee-table :tableEmployees="this.dataEmployees"/>
+    <employee-table :tableEmployees="this.dataEmployees" @delete:employee="deleteEmployee"/>
   </div>
 </template>
 
@@ -58,6 +58,10 @@ The first thing we need to do is make employee-form acknowledge and handle the e
         const ne = { ...e, id };
 
         this.dataEmployees = [ ...this.dataEmployees, ne ]
+      },
+      deleteEmployee(id) {
+        // to filter with a test not equal to the deleted id
+        this.dataEmployees = this.dataEmployees.filter( e => e.id !== id )
       },
     },
   }
