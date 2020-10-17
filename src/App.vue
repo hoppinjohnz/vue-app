@@ -1,18 +1,21 @@
 
 <template>
   <div id="app" class="small-container">
-    <h1>Employees</h1>
+    <hello-world msg="Hi John!"/>
 
+    <h1>Employees</h1>
     <employee-table />
   </div>
 </template>
 
 <script>
   import EmployeeTable from '@/components/EmployeeTable.vue'
+  import HelloWorld from '@/components/HelloWorld.vue'
 
   export default {
     name: 'app',
     components: {
+      HelloWorld,
       EmployeeTable,
     },
   }
