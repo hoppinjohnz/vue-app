@@ -12,8 +12,8 @@ The first thing we need to do is make employee-form acknowledge and handle the e
 -->
     <employee-form @add:employee="addEmployee"/>
 
-<!-- After defining data() here, we want to pass it to EmployeeTable. We can do that by passing the data down as a property. An attribute that begins with a colon : will allow you to pass data. The more verbose version would be v-bind. In this case we'll pass our employeesData array. -->
-    <employee-table :employeesTable="this.employeesData"/>
+<!-- After defining data() here, we want to pass it to EmployeeTable. We can do that by passing the data down as a property. An attribute that begins with a colon : will allow you to pass data. The more verbose version would be v-bind. In this case we'll pass our dataEmployees array. -->
+    <employee-table :tableEmployees="this.dataEmployees"/>
   </div>
 </template>
 
@@ -31,7 +31,7 @@ The first thing we need to do is make employee-form acknowledge and handle the e
     },
     data() {
       return {
-        employeesData: [
+        dataEmployees: [
           {
             id: 1,
             name: 'Richard Hendricks',
@@ -52,12 +52,12 @@ The first thing we need to do is make employee-form acknowledge and handle the e
     },
     methods: {
       addEmployee(e) {
-        const l = this.employeesData.length
-        const lId = l > 0 ? this.employeesData[ l - 1 ].id : 0;
+        const l = this.dataEmployees.length
+        const lId = l > 0 ? this.dataEmployees[ l - 1 ].id : 0;
         const id = lId + 1;
         const ne = { ...e, id };
 
-        this.employeesData = [ ...this.employeesData, ne ]
+        this.dataEmployees = [ ...this.dataEmployees, ne ]
       },
     },
   }
