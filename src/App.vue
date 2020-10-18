@@ -1,9 +1,9 @@
 
 <template>
   <div id="app" class="small-container">
-    <hello-world msg="Hi John!"/>
+    <hello-world msg="Vue Tutorial: An Overview and Walkthrough"/>
 
-    <h1>Employees</h1>
+    <h1>Add Employee</h1>
 <!-- 
 Retrieving events from the child
 Now employee-form is broadcasting its emitted event, but we need to capture the event and value in the parent to work with it.
@@ -12,6 +12,7 @@ The first thing we need to do is make employee-form acknowledge and handle the e
 -->
     <employee-form @add:employee="addEmployee"/>
 
+    <h1>Manage Employees</h1>
 <!-- After defining data() here, we want to pass it to EmployeeTable. We can do that by passing the data down as a property. An attribute that begins with a colon : will allow you to pass data. The more verbose version would be v-bind. In this case we'll pass our dataEmployees array. -->
     <employee-table 
       :tableEmployees="this.dataEmployees" 

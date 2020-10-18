@@ -1,4 +1,6 @@
-# vue-app
+# Vue Tutorial: An Overview and Walkthrough
+
+See [the tutorial](https://www.taniarascia.com/getting-started-with-vue/).
 
 ## Project setup
 ```
