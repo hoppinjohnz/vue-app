@@ -89,9 +89,11 @@
     // In Vue, we can use computed properties, which are functions that are automatically computed when something changes. This way we can avoid putting complex logic in the Vue template itself. 
     computed: {
       invalidName() {
+        // validation
         return this.formEmployee.name === ''
       },
       invalidEmail() {
+        // validation
         return this.formEmployee.email === ''
       },
     },

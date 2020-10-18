@@ -74,15 +74,17 @@ The first thing we need to do is make employee-form acknowledge and handle the e
           console.error(error);
         }
       },
-      async editEmployee(id, updatedEmployee) {
+      async editEmployee(e) {
+        const id = e.id
         try {
           const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
             method: 'PUT',
-            body: JSON.stringify(updatedEmployee),
+            body: JSON.stringify(e),
             headers: { 'Content-type': 'application/json; charset=UTF-8' },
           })
-          const data = await response.json()
-          this.dataEmployees = this.dataEmployees.map(e => (e.id === id ? data : e))
+          const resE = await response.json()
+
+          this.dataEmployees = this.dataEmployees.map( i => (i.id === id ? resE : i) )
         } catch (error) {
           console.error(error)
         }
