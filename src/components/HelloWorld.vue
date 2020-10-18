@@ -1,6 +1,8 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div> 
+    <p> </p>
+    <p>Work product of <a href="https://www.taniarascia.com/getting-started-with-vue/">{{ msg }}</a>
+    </p>
   </div>
 </template>
 
